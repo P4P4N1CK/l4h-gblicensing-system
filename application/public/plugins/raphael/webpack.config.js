@@ -1,17 +1,16 @@
-"use strict";
+"use strict"
 
-const webpack = require("webpack");
-const fs = require("fs");
+const webpack = require("webpack")
+const fs = require("fs")
 
 module.exports = function (env) {
-  
-  let externals = [];
-  
+  const externals = []
+
   if (env && env.noDeps) {
-    console.log('Building version without deps');
-    externals.push("eve");
+    console.log('Building version without deps')
+    externals.push("eve")
   }
-  
+
   return {
     entry: './dev/raphael.amd.js',
     output: {
@@ -20,9 +19,9 @@ module.exports = function (env) {
       libraryTarget: "umd",
       library: "Raphael"
     },
-    
-    externals: externals,
-    
+
+    externals,
+
     plugins: [
       new webpack.BannerPlugin({
         banner: fs.readFileSync('./dev/banner.txt', 'utf8'),
@@ -35,6 +34,5 @@ module.exports = function (env) {
         "eve": "eve-raphael/eve"
       }
     }
-  };
-  
-};
+  }
+}

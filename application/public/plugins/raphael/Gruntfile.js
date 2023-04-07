@@ -1,13 +1,12 @@
-"use strict";
+"use strict"
 
-module.exports = function(grunt) {
-
-    var pkg = grunt.file.readJSON("package.json");
+module.exports = function (grunt) {
+    const pkg = grunt.file.readJSON("package.json")
 
     // Project configuration.
     grunt.initConfig({
         // Metadata.
-        pkg: pkg,
+        pkg,
         banner: grunt.file.read("dev/copy.js").replace(/@VERSION/, pkg.version),
         // Task configuration.
         uglify: {
@@ -60,13 +59,13 @@ module.exports = function(grunt) {
                 ]
             }
         }
-    });
+    })
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks("grunt-contrib-concat");
-    grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks("grunt-replace");
+    grunt.loadNpmTasks("grunt-contrib-concat")
+    grunt.loadNpmTasks("grunt-contrib-uglify")
+    grunt.loadNpmTasks("grunt-replace")
 
     // Default task.
-    grunt.registerTask("default", ["concat", "replace", "uglify"]);
-};
+    grunt.registerTask("default", ["concat", "replace", "uglify"])
+}
